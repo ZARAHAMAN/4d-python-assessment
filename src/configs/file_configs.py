@@ -16,7 +16,6 @@ SALES_CONFIG = {
     "schema": SALES_SCHEMA,
     "location": "./data/sales/",
     "file_pattern": r'sales_\d{4}\d{2}\d{2}\.txt',
-    "key_columns": ["uuid"],
     "data_type": 'transactional',
     "file_type": "txt",
     "read_args": {
@@ -29,7 +28,7 @@ PRODUCT_CONFIG = {
     "schema": PRODUCT_SCHEMA,
     "location": "./data/product/",
     "file_pattern": r'product_\d{4}\d{2}\d{2}\.json',
-    "key_columns": ["uuid"],
+    "key_columns": ["product_id"],
     "data_type": 'transactional',
     "file_type": "json",
     "read_args": {

@@ -1,4 +1,4 @@
-from src.configs.schemas import CUSTOMER_SCHEMA, SALES_SCHEMA
+from src.configs.schemas import CUSTOMER_SCHEMA, SALES_SCHEMA, PRODUCT_SCHEMA
 
 CUSTOMER_CONFIG = {
     "schema": CUSTOMER_SCHEMA,
@@ -14,19 +14,33 @@ CUSTOMER_CONFIG = {
 
 SALES_CONFIG = {
     "schema": SALES_SCHEMA,
-    "location": "/data/sales/",
-    "file_pattern": r'sales_\d{4}\d{2}\d{2}\.parquet',
+    "location": "./data/sales/",
+    "file_pattern": r'sales_\d{4}\d{2}\d{2}\.txt',
     "key_columns": ["uuid"],
     "data_type": 'transactional',
-    "file_type": "csv",
+    "file_type": "txt",
     "read_args": {
         "sep": ",",
         "names": list(map(lambda x: x['name'], SALES_SCHEMA)),
     }
 }
 
+PRODUCT_CONFIG = {
+    "schema": PRODUCT_SCHEMA,
+    "location": "./data/product/",
+    "file_pattern": r'product_\d{4}\d{2}\d{2}\.json',
+    "key_columns": ["uuid"],
+    "data_type": 'transactional',
+    "file_type": "json",
+    "read_args": {
+        "sep": ","
+        
+    }
+}
+
+
 CONFIGS = {
     "customer": CUSTOMER_CONFIG,
-     "sales": SALES_CONFIG,
-     "product": PRODUCT_CONFIG
+    "sales": SALES_CONFIG,
+    "product": PRODUCT_CONFIG
 }
